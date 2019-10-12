@@ -1,4 +1,4 @@
-# itrans
+# vue-element
 
 ## Project setup
 ```
