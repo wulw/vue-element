@@ -9,7 +9,7 @@
           <el-input type="password" v-model="login.password"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button style="width: 100%;" type="primary" @click="login">登录</el-button>
+          <el-button style="width: 100%;" type="primary" @click="handleLogin">登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -43,8 +43,21 @@ export default {
 
   },
   methods: {
-    login() {
-
+    handleLogin() {
+      this.$refs.login.validate((valid) => {
+        if (valid) {
+          this.$message({
+            message: '登录成功',
+            type: 'success'
+          });
+        } else {
+          this.$message({
+            message: '用户名或密码出错',
+            type: 'error'
+          });
+          return false;
+        }
+      })
     }
   }
 }
