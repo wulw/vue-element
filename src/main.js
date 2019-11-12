@@ -3,6 +3,7 @@ import ELementUI from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 
 // eslint-disable-next-line
 import axios from '@/utils/axios.config.js'
@@ -27,6 +28,7 @@ Vue.use(ELementUI)
 
 new Vue({
   router,
+  store,
   // axios,
   render: h => h(App),
 }).$mount('#app')

@@ -17,7 +17,8 @@
 </template>
 
 <script>
-
+import { createNamespacedHelpers } from 'vuex';
+const { mapState, mapMutations } = createNamespacedHelpers('login');
 
 export default {
   name: 'Login',
@@ -40,9 +41,14 @@ export default {
     }
   },
   computed: {
-
+    ...mapState([
+      'auth'
+    ])
   },
   methods: {
+    ...mapMutations([
+      'setAuth'
+    ]),
     handleLogin() {
       this.$refs.login.validate((valid) => {
         if (valid) {
@@ -59,6 +65,15 @@ export default {
         }
       })
     }
+  },
+  created() {
+    // const { name, password } = this.auth; // 对象的解构赋值
+    // this.login.name = name;
+    // this.login.password = password;
+    this.login = this.auth;
+  },
+  mounted() {
+    // window.alert(this.auth);
   }
 }
 </script>

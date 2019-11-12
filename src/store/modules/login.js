@@ -1,17 +1,20 @@
 const state = {
-  auth: null
+  auth: {
+    name: 'lywu6',
+    password: '123456'
+  }
 }
 
 const getters = {}
 
-const mutations = {}
-
-const actions = {
+const mutations = {
   // 设置用户信息
-  setAuth (state, obj) {
-    state.auth = obj;
+  setAuth: (state, payload) => {
+    state.auth = payload;
   }
 }
+
+const actions = {}
 
 export default {
   namespaced: true,

@@ -9,6 +9,7 @@ const Login = () => import('@/views/Login')
 Vue.use(Router)
 
 const route = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
