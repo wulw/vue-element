@@ -9,11 +9,11 @@ const Login = () => import('@/views/Login')
 Vue.use(Router)
 
 const route = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
-      redirect: 'home'
+      redirect: '/home'
     },
     {
       path: '/helloworld',
@@ -23,7 +23,20 @@ const route = new Router({
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      redirect: '/home/test',
+      children: [
+        {
+          path: '/home/test',
+          name: 'test',
+          component: () => import('@/views/Test')
+        },
+        {
+          path: '/list/table',
+          name: 'table',
+          component: () => import('@/views/list/Table')
+        }
+      ]
     },
     {
       path: '/login',

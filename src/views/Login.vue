@@ -1,16 +1,14 @@
 <template>
   <div class="login">
     <div class="content">
-      <el-form ref="login" :model="login" :rules="rules" label-width="80px">
-        <el-form-item label="用户名：" prop="name">
-          <el-input v-model="login.name"></el-input>
+      <el-form ref="login" :model="login" :rules="rules">
+        <el-form-item prop="name">
+          <el-input v-model="login.name" prefix-icon="el-icon-user" placeholder="请输入用户名"></el-input>
         </el-form-item>
-        <el-form-item label="密码：" prop="password">
-          <el-input type="password" v-model="login.password"></el-input>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="login.password" prefix-icon="el-icon-lock" placeholder="请输入密码"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-button style="width: 100%;" type="primary" @click="handleLogin">登录</el-button>
-        </el-form-item>
+        <el-button style="width: 100%;" type="primary" @click="handleLogin">登录</el-button>
       </el-form>
     </div>
   </div>
@@ -25,17 +23,38 @@ export default {
   components: {},
   props: {},
   data() {
+    var validateName = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入用户名'));
+      } else {
+        callback()
+      }
+    }
+    var validatePassword = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'));
+      } else {
+        callback()
+      }
+    }
     return {
       login: {
         name: '',
         password: ''
       },
       rules: {
+        // name: [
+        //   { required: true, message: '请输入用户名', trigger: 'blur' }
+        // ],
+        // password: [
+        //   { required: true, message: '请输入密码', trigger: 'blur' }
+        // ]
+        // 自定义校验规则
         name: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
+          { validator: validateName, trigger: 'blur' }
         ],
         password: [
-          { required: true, message: '请输入密码', trigger: 'blur' }
+          { validator: validatePassword, trigger: 'blur' }
         ]
       }
     }
@@ -52,15 +71,17 @@ export default {
     handleLogin() {
       this.$refs.login.validate((valid) => {
         if (valid) {
-          this.$message({
-            message: '登录成功',
-            type: 'success'
-          });
+          console.log('submit')
+          if (this.login.name === this.auth.name && this.login.password === this.auth.password) {
+            this.$message.success('登录成功')
+            this.$router.push({
+              path: '/home'
+            })
+          } else {
+            this.$message.error('用户名密码不正确')
+          }
         } else {
-          this.$message({
-            message: '用户名或密码出错',
-            type: 'error'
-          });
+          console.log('error submit')
           return false;
         }
       })
@@ -70,7 +91,7 @@ export default {
     // const { name, password } = this.auth; // 对象的解构赋值
     // this.login.name = name;
     // this.login.password = password;
-    this.login = this.auth;
+    // this.login = this.auth;
   },
   mounted() {
     // window.alert(this.auth);
@@ -82,15 +103,16 @@ export default {
 .login {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
   width: 100%;
   .content {
     width: 400px;
-    background-color: #fff;
-    padding: 38px 32px 16px 16px;
+    // background-color: #fff;
+    padding: 32px;
     border-radius: 4px;
+    margin: 0 240px;
   }
 }
 </style>

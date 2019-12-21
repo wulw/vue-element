@@ -14,6 +14,7 @@
       <el-menu-item index="2">情报整编</el-menu-item>
       <el-menu-item index="3">情报管理</el-menu-item>
       <el-menu-item index="4">整编管理</el-menu-item>
+      <el-menu-item index="5">智能问答</el-menu-item>
     </el-menu>
     <div class="user">
       <el-image
@@ -48,8 +49,8 @@ export default {
     }
   },
   methods: {
-    handleSelect() {
-
+    handleSelect(val) {
+      // this.$message.success(val);
     }
   },
   created() {}
@@ -71,6 +72,9 @@ export default {
       color: #ccc;
     }
   }
+  .el-menu {
+    border-bottom: none;
+  }
   .user {
     .el-image {
       border-radius: 50%;
@@ -79,6 +83,7 @@ export default {
     .el-dropdown {
       color: #ccc;
       padding: 0 24px;
+      cursor: pointer;
     }
   }
 }

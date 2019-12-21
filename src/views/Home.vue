@@ -2,6 +2,9 @@
   <div class="home">
     <Header></Header>
     <!-- <Test></Test> -->
+    <div class="content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -42,6 +45,11 @@ export default {
   // justify-content: space-between;
   // align-items: center;
   // font-size: 64px;
+  height: 100%;
+  .content {
+    height: calc(100% - 60px);
+    padding: 16px;
+  }
   a {
     color: $--color-primary;
   }

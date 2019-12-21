@@ -1,8 +1,14 @@
 // ----------- base.scss --------------
+@font-face {
+  font-family: '思源';
+  src: url('../assets/font/siyuan.otf');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: '思源';
 }
 
 html, body {
