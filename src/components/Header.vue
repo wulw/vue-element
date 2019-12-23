@@ -12,8 +12,8 @@
       active-text-color="#ffd04b">
       <el-menu-item index="1">数据预览</el-menu-item>
       <el-menu-item index="2">情报整编</el-menu-item>
-      <el-menu-item index="3">情报管理</el-menu-item>
-      <el-menu-item index="4">整编管理</el-menu-item>
+      <el-menu-item index="3">原报管理</el-menu-item>
+      <el-menu-item index="4">通报管理</el-menu-item>
       <el-menu-item index="5">智能问答</el-menu-item>
     </el-menu>
     <div class="user">

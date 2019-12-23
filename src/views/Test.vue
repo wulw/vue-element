@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <!-- <p>I love liuling.</p> -->
-    <el-select v-model="value" placeholder="请选择">
+    <el-select v-model="value" placeholder="请选择" clearable>
       <el-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label"></el-option>
     </el-select>
     <a href="https://www.baidu.com" title="【I love you】百度一下，你就知道">百度</a>
@@ -45,7 +45,7 @@ export default {
       //   value: '选项5',
       //   label: '北京烤鸭'
       // }],
-      value: '选项1',
+      value: '',
       products: []
     }
   },

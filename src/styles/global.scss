@@ -1,0 +1,33 @@
+@import "./element-variables.scss";
+@import "~element-ui/packages/theme-chalk/src/index";
+
+@font-face {
+  font-family: '思源';
+  src: url('../assets/font/siyuan.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: '思源';
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+// ----------------- scrollbar for chrome ----------------------
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .45);
+  border-radius: 2px;
+  &:hover {
+    background-color: rgba(0, 0, 0, .65);
+  }
+}

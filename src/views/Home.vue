@@ -38,7 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/common.scss';
 .home {
   position: relative;
   // display: flex;
@@ -51,7 +50,7 @@ export default {
     padding: 16px;
   }
   a {
-    color: $--color-primary;
+    color: red;
   }
 }
 </style>

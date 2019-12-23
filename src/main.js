@@ -8,8 +8,7 @@ import store from './store'
 // eslint-disable-next-line
 import axios from '@/utils/axios.config.js'
 
-import './styles/base.scss'
-import './assets/element-variables.scss'
+import './styles/global.scss'
 
 Vue.config.productionTip = false
 
