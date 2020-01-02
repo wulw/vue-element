@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import ELementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
 import router from './router'
+import './router/authority'
 import store from './store'
 
-// eslint-disable-next-line
-import axios from '@/utils/axios.config.js'
-
 import './styles/global.scss'
+Vue.use(ELementUI)
 
 Vue.config.productionTip = false
 
@@ -23,11 +21,8 @@ Vue.component('button-counter', {
 
 Vue.use('button-counter')
 
-Vue.use(ELementUI)
-
 new Vue({
   router,
   store,
-  // axios,
   render: h => h(App),
 }).$mount('#app')

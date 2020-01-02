@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from '@/components/HelloWorld'
 const Home = () => import('@/views/Home.vue')
 
 const Login = () => import('@/views/Login')
@@ -10,6 +10,7 @@ Vue.use(Router)
 
 const route = new Router({
   // mode: 'history',
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',

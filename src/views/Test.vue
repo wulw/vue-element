@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <!-- <p>I love liuling.</p> -->
-    <el-select v-model="value" placeholder="请选择" clearable>
+    <el-select v-model="value" placeholder="请选择" size="small" clearable>
       <el-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label"></el-option>
     </el-select>
     <a href="https://www.baidu.com" title="【I love you】百度一下，你就知道">百度</a>
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import api from '../api'
+import api from '../api/api'
+import request from '../utils/request'
 
 export default {
   name: 'Test',
@@ -57,10 +58,12 @@ export default {
     }  
   },
   methods: {
-    getOptions(params) {
-      
-      api.home.getOptions(params).then(response => {
-        this.options = response.data;
+    getOptions() {
+      // axios请求封装
+      request(api.getOptions, {
+
+      }).then(response => {
+        this.options = response;
       }).catch(error => {
         this.$message.error(error);
       })

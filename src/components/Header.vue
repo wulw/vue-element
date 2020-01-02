@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="login">
-      <strong>IFLY DESIGN</strong>
+      <strong>IFLYTEK DESIGN</strong>
     </div>
     <el-menu :default-active="activeIndex"
       class="el-menu-demo"
@@ -10,11 +10,9 @@
       background-color="#545c64"
       text-color="#ccc"
       active-text-color="#ffd04b">
-      <el-menu-item index="1">数据预览</el-menu-item>
-      <el-menu-item index="2">情报整编</el-menu-item>
-      <el-menu-item index="3">原报管理</el-menu-item>
-      <el-menu-item index="4">通报管理</el-menu-item>
-      <el-menu-item index="5">智能问答</el-menu-item>
+      <el-menu-item index="1">DEMO</el-menu-item>
+      <el-menu-item index="2">ECHARTS</el-menu-item>
+      <el-menu-item index="3">TABLE</el-menu-item>
     </el-menu>
     <div class="user">
       <el-image
