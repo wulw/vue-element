@@ -25,7 +25,7 @@ const route = new Router({
       path: '/home',
       name: 'home',
       component: Home,
-      redirect: '/home/test',
+      redirect: '/data/view',
       children: [
         {
           path: '/home/test',
@@ -36,6 +36,11 @@ const route = new Router({
           path: '/list/table',
           name: 'table',
           component: () => import('@/views/list/Table')
+        },
+        {
+          path: '/data/view',
+          name: 'view',
+          component: () => import('@/views/data/View')
         }
       ]
     },
