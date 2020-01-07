@@ -33,6 +33,9 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+const { mapMutations } = createNamespacedHelpers('login');
+
 export default {
   name: 'Header',
 
@@ -48,6 +51,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'setUser'
+    ]),
     handleSelect(val) {
       // this.$message.success(val);
     },
@@ -63,6 +69,9 @@ export default {
             type: 'success',
             message: '退出成功'
           });
+          this.setUser({
+            id: ''
+          })
           this.$router.push({
             path: '/login'
           })

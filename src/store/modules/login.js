@@ -1,5 +1,6 @@
 const state = {
-  auth: {
+  user: {
+    id: '',
     name: 'lywu6',
     password: '123456'
   }
@@ -9,8 +10,8 @@ const getters = {}
 
 const mutations = {
   // 设置用户信息
-  setAuth: (state, payload) => {
-    state.auth = payload;
+  setUser: (state, payload) => {
+    state.user = payload;
   }
 }
 

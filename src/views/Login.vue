@@ -1,6 +1,9 @@
 <template>
   <div class="login">
     <div class="content">
+      <div class="title">
+        {{ title }}
+      </div>
       <el-form ref="login" :model="login" :rules="rules">
         <el-form-item prop="name">
           <el-input v-model="login.name" prefix-icon="el-icon-user" placeholder="请输入用户名"></el-input>
@@ -38,6 +41,7 @@ export default {
       }
     }
     return {
+      title: window.config.systemName,
       login: {
         name: '',
         password: ''
@@ -61,19 +65,24 @@ export default {
   },
   computed: {
     ...mapState([
-      'auth'
+      'user'
     ])
   },
   methods: {
     ...mapMutations([
-      'setAuth'
+      'setUser'
     ]),
     handleLogin() {
       this.$refs.login.validate((valid) => {
         if (valid) {
           console.log('submit')
-          if (this.login.name === this.auth.name && this.login.password === this.auth.password) {
+          if (this.login.name === this.user.name && this.login.password === this.user.password) {
             this.$message.success('登录成功')
+            this.setUser({
+              id: '001',
+              name: this.login.name,
+              password: this.login.password
+            });
             this.$router.push({
               path: '/home'
             })
@@ -107,12 +116,17 @@ export default {
   align-items: center;
   height: 100%;
   width: 100%;
+  background-color: rgba(0, 0, 0, .5);
   .content {
-    width: 400px;
-    // background-color: #fff;
-    padding: 32px;
+    .title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 16px;
+      color: #eee;
+    }
+    width: 360px;
     border-radius: 4px;
-    margin: 0 240px;
+    margin: 0 120px;
   }
 }
 </style>
