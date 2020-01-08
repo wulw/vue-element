@@ -1,5 +1,5 @@
 window.config = {
-  publicPath: '',
+  publicPath: '/api',
   systemName: 'Vue App'
 };
 

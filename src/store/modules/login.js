@@ -3,7 +3,8 @@ const state = {
     id: '',
     name: 'lywu6',
     password: '123456'
-  }
+  },
+  activeIndex: '1'
 }
 
 const getters = {}
@@ -12,6 +13,10 @@ const mutations = {
   // 设置用户信息
   setUser: (state, payload) => {
     state.user = payload;
+  },
+  // 设置菜单栏index
+  setMenuIndex: (state, payload) => {
+    state.activeIndex = payload;
   }
 }
 

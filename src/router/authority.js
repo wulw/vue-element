@@ -10,7 +10,10 @@ router.beforeEach((to, from, next) => {
     // console.log(store.state.login.user)
     if(store.state.login.user.id === '') {
       next('/login');
+    } else {
+      next()
     }
+  } else {
+    next();
   }
-  next();
 });

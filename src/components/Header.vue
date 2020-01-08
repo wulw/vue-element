@@ -34,7 +34,7 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
-const { mapMutations } = createNamespacedHelpers('login');
+const { mapState, mapMutations } = createNamespacedHelpers('login');
 
 export default {
   name: 'Header',
@@ -43,19 +43,25 @@ export default {
   components: {},
   data() {
     return {
-      activeIndex: '1',
       user: {
         imgSrc: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
         name: 'admin'
       }
     }
   },
+  computed: {
+    ...mapState([
+      'activeIndex'
+    ])
+  },
   methods: {
     ...mapMutations([
-      'setUser'
+      'setUser',
+      'setMenuIndex'
     ]),
     handleSelect(val) {
       // this.$message.success(val);
+      this.setMenuIndex(val);
     },
     handleCommand(command) {
       console.log(command);
@@ -70,7 +76,9 @@ export default {
             message: '退出成功'
           });
           this.setUser({
-            id: ''
+            id: '',
+            name: 'lywu6',
+            password: '123456'
           })
           this.$router.push({
             path: '/login'

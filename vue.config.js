@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = {
 	publicPath: './',
@@ -6,20 +6,18 @@ module.exports = {
   outputDir: './dist',
 	productionSourceMap: false,
 	// 关闭eslint规范
-  // lintOnSave: false,
+  lintOnSave: false,
 
   devServer: {
 		host: '0.0.0.0',
 		port: 8080,
 		proxy: {
-			'/rest': {
-				target: 'http://10.1.181.90:8882'
-			},
-			'/Itrans': {
-				target: 'http://10.1.181.90:9500'
-			},
 			'/utils': {
-				target: 'https://wulw.github.io/'
+				target: 'https://wulw.github.io/',
+				changeOrigin: true,
+				pathRewrite: {
+					'^/api': '/'
+				}
 			}
 		}
   }
