@@ -4,12 +4,12 @@
       <div class="title">
         {{ title }}
       </div>
-      <el-form ref="login" :model="login" :rules="rules">
+      <el-form ref="login" :model="login" :rules="rules" @submit.native.prevent>
         <el-form-item prop="name">
-          <el-input v-model="login.name" prefix-icon="el-icon-user" placeholder="请输入用户名"></el-input>
+          <el-input v-model="login.name" prefix-icon="el-icon-user" placeholder="请输入用户名" @keyup.enter.native="handleLogin"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" v-model="login.password" prefix-icon="el-icon-lock" placeholder="请输入密码"></el-input>
+          <el-input type="password" v-model="login.password" prefix-icon="el-icon-lock" placeholder="请输入密码" @keyup.enter.native="handleLogin"></el-input>
         </el-form-item>
         <el-button style="width: 100%;" type="primary" @click="handleLogin">登录</el-button>
       </el-form>
@@ -43,8 +43,8 @@ export default {
     return {
       title: window.config.systemName,
       login: {
-        name: '',
-        password: ''
+        name: 'lywu6',
+        password: '123456'
       },
       rules: {
         // name: [

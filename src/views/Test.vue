@@ -2,8 +2,11 @@
   <div class="test">
     <!-- <p>I love liuling.</p> -->
     <el-select v-model="value" placeholder="请选择" size="small" clearable>
+      <el-option value="" label="全部"></el-option>
       <el-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label"></el-option>
     </el-select>
+    <el-input v-model="name" placeholder="请输入姓名"></el-input>
+    <p>{{ name }}<p>
     <a href="https://www.baidu.com" title="【I love you】百度一下，你就知道">百度</a>
     <ul>
       <li v-for="(product, index) in products" :key="index">
@@ -15,20 +18,32 @@
       </li>
     </ul>
     <h2>Total Inventory: {{ totalProducts }}</h2>
+    <Icon :component="Arrowback" />
+    <!-- 插槽 -->
+    <blog-post title="这里是标题"><button-counter></button-counter>这里是内容</blog-post>
+    <Dialog :url="url" :dialogVisible="dialogVisible" title="测试弹窗插槽" @close="dialogVisible = false">
+      Clicking here will to url: {{ url }}
+      <p>插槽</p>
+    </Dialog>
   </div>
 </template>
 
 <script>
-import api from '../api/api'
-import request from '../utils/request'
+import api from '../api/api';
+import request from '../utils/request';
+import Arrowback from "../assets/icons/arrowback.svg";
+import Dialog from '@/components/Dialog/index.vue'
 
 export default {
   name: 'Test',
 
   props: {},
-  components: {},
+  components: {
+    Dialog
+  },
   data() {
     return {
+      Arrowback,
       options: [],
       // options: [{
       //   value: '选项1',
@@ -46,8 +61,11 @@ export default {
       //   value: '选项5',
       //   label: '北京烤鸭'
       // }],
+      name: '吴粒蔚',
       value: '',
-      products: []
+      products: [],
+      dialogVisible: !true,
+      url: '/profile'
     }
   },
   computed: {
@@ -57,6 +75,11 @@ export default {
       }, 0)
     }  
   },
+  watch: {
+    name(newVal, oldVal) {
+      console.log('监听name：', newVal, oldVal)
+    }
+  },
   methods: {
     getOptions() {
       // axios请求封装
@@ -64,6 +87,7 @@ export default {
 
       }).then(response => {
         this.options = response;
+        console.log(this.options)
       }).catch(error => {
         this.$message.error(error);
       })
@@ -90,6 +114,11 @@ export default {
     .then(json => {
       this.products = json.products
     })
+
+    let a = [1, 2, 3, 4, 5]
+    for (let key in a) {
+      console.log(key, a[key])
+    }
   }
 }
 </script>

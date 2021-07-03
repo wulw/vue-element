@@ -30,6 +30,7 @@
       <el-button type="primary" size="small" @click="handleExport">导出</el-button>
       <el-button size="small" @click="handleDelete">删除</el-button>
     </div>
+    <button-counter></button-counter>
   </div>
 </template>
 
