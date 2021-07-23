@@ -36,5 +36,18 @@ module.exports = {
     const svgRule = config.module.rule("svg");
     svgRule.uses.clear();
     svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+  },
+  pluginOptions: {
+    TerserPlugin: {
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      }
+    }
   }
 }

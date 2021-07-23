@@ -5,7 +5,7 @@
       :before-close="beforeClose">
       <slot></slot>
       <div class="el-footer">
-        <el-button type="primary" size="small" @click="confirmModal">确 定</el-button>
+        <el-button type="primary" size="small" @click="$parent.dialogVisible = false">确 定</el-button>
       </div>
     </el-dialog>
   </div>

@@ -1,17 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
-import login from './modules/login'
+import state from './state'
+import getters from './getters'
+import mutations from './mutations'
+import actions from './actions'
+import modules from './modules/index'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules: {
-    login
-  },
+  state,
+  getters,
+  mutations,
+  actions,
+  modules,
   plugins: [
     createPersistedState({
-      storage: window.sessionStorage
+      key: 'vue-element',
+      storage: window.sessionStorage,
+      reducer: state => ({
+        user: state.login.user
+      })
     })
   ]
 })

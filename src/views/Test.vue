@@ -25,6 +25,8 @@
       Clicking here will to url: {{ url }}
       <p>插槽</p>
     </Dialog>
+    <!-- learn es6 -->
+    <p>{{ computedExpress }}</p>
   </div>
 </template>
 
@@ -61,11 +63,17 @@ export default {
       //   value: '选项5',
       //   label: '北京烤鸭'
       // }],
-      name: '吴粒蔚',
+      name: 'w_lw',
       value: '',
       products: [],
-      dialogVisible: !true,
-      url: '/profile'
+      dialogVisible: true,
+      url: '/profile',
+      address: {
+        provinceCodeDesc: '安徽省',
+        cityCodeDesc: '合肥市',
+        countyCodeDesc: '蜀山区',
+        valueDesc: '三里庵街道'
+      }
     }
   },
   computed: {
@@ -73,6 +81,10 @@ export default {
       return this.products.reduce((sum, product) => {
         return sum + product.quantity
       }, 0)
+    },
+    computedExpress() {
+      let { provinceCodeDesc, cityCodeDesc, countyCodeDesc, valueDesc } = this.address
+      return `${provinceCodeDesc ? provinceCodeDesc : ''}${cityCodeDesc ? '/' + cityCodeDesc : ''}${countyCodeDesc ? '/' + countyCodeDesc : ''}${valueDesc ?  '/' + valueDesc : ''}`
     }  
   },
   watch: {
@@ -105,26 +117,49 @@ export default {
       // }).catch(error => {
       //   Message.error(error);
       // })
+    },
+    test() {
+      let arr = [
+        {
+          name: 'lywu6',
+          age: 26
+        },
+        {
+          name: 'w_lw',
+          age: 25
+        }
+      ]
+      console.log(arr)
+      let index = arr.findIndex(item => item.age === 25)
+      console.log(index)
     }
   },
   created() {
     this.getOptions();
-    fetch('https://api.myjson.com/bins/74l63')
-    .then(response => response.json())
-    .then(json => {
-      this.products = json.products
-    })
 
-    let a = [1, 2, 3, 4, 5]
-    for (let key in a) {
-      console.log(key, a[key])
+    try {
+      fetch('https://api.myjson.com/bins/74l63')
+      .then(response => response.json())
+      .then(json => {
+        this.products = json.products
+      })
+    } catch(e) {
+      console.log(e)
     }
+
+    // let a = [1, 2, 3, 4, 5]
+    // for (let key in a) {
+    //   console.log(key, a[key])
+    // }
+    this.test()
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .test {
-
+  background-color: #fff;
+  height: calc(100vh - 88px);
+  padding: 16px;
 }
 </style>
