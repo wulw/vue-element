@@ -1,7 +1,14 @@
-/* 改变主题色变量 */
-// $--color-primary: teal;
+// Brand Color
+$--color-primary: #2e71e6;
 
-/* 改变 icon 字体路径变量，必需 */
-$--font-path: '../../node_modules/element-ui/lib/theme-chalk/fonts';
+// Font Color
+$--color-text-primary: rgba(0, 0, 0, 0.85);
+$--color-text-regular: rgba(0, 0, 0, 0.65);
+$--color-text-secondary: rgba(0, 0, 0, 0.45);
+$--color-text-placeholder: rgba(0, 0, 0, 0.25);
 
-@import "../../node_modules/element-ui/packages/theme-chalk/src/index";
+// Font Size
+$--font-size-base: 14px;
+
+// Font Path
+$--font-path: "~element-ui/lib/theme-chalk/fonts";

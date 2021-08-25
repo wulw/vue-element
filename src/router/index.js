@@ -8,10 +8,15 @@ const Login = () => import('@/views/Login')
 
 Vue.use(Router)
 
-const route = new Router({
+const router = new Router({
   // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: "*",
+      name: "404",
+      component: () => import("@/views/404")
+    },
     {
       path: '/',
       redirect: '/login'
@@ -53,4 +58,4 @@ const route = new Router({
 })
 
 
-export default route
+export default router

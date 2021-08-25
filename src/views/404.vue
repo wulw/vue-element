@@ -12,16 +12,15 @@
 </template>
 
 <script>
-import Arrowback from "../assets/icons/arrowback.svg"
-
+import Arrowback from "../assets/icons/arrowback.svg";
 export default {
   data() {
     return {
       bk: require("../assets/images/404.png"),
       Arrowback
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

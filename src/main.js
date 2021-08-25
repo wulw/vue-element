@@ -8,10 +8,14 @@ import store from './store'
 import './styles/global.scss'
 Vue.use(ELementUI)
 
+import Icon from "./components/Icon";
+import "./components/Icon/style/index.scss";
+Vue.use(Icon);
+
 Vue.config.productionTip = false
 
 Vue.component('button-counter', {
-  data() {
+  data () {
     return {
       count: 0
     }
@@ -19,7 +23,12 @@ Vue.component('button-counter', {
   template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
 })
 
-Vue.use('button-counter')
+Vue.component('blog-post', {
+  props: ['title'],
+  template: `<div class="title">{{ title }}<div><slot></slot></div></div>`
+})
+
+// Vue.use('button-counter')
 
 new Vue({
   router,

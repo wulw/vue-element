@@ -1,5 +1,5 @@
 import './style/index.scss'
-import getClassString from './utils'
+import { getClassString } from './utils'
 
 const Icon = {
   name: 'Icon',

@@ -30,7 +30,7 @@ function getClass(ele) {
   return cls
 }
 
-export default function getClassString(ele) {
+export function getClassString(ele) {
   const classString = classNames({
     ...getClass(ele),
     'uxicon': true

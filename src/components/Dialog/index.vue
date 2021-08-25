@@ -4,7 +4,7 @@
       :visible.sync="dialogVisible"
       :before-close="beforeClose">
       <slot></slot>
-      <div slot="footer" class="el-footer">
+      <div class="el-footer">
         <el-button type="primary" size="small" @click="$parent.dialogVisible = false">确 定</el-button>
       </div>
     </el-dialog>
@@ -40,7 +40,7 @@ export default {
   methods: {
     beforeClose (done) {
       this.$parent.dialogVisible = false
-      done()
+      // done()
     },
     confirmModal () {
       this.$emit('close', '')

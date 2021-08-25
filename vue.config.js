@@ -1,12 +1,15 @@
 'use strict';
 
+const path = require('path')
+
 module.exports = {
-	publicPath: './',
+	publicPath: '/vue-element/',
   // baseUrl: './',
-  outputDir: './dist',
-	productionSourceMap: false,
+  outputDir: 'vue-element',
+	productionSourceMap: true,
 	// 关闭eslint规范
-  lintOnSave: false,
+	lintOnSave: false,
+	runtimeCompiler: true,
 
   devServer: {
 		host: '0.0.0.0',
@@ -20,5 +23,31 @@ module.exports = {
 				}
 			}
 		}
+	},
+	// configureWebpack: {
+	// 	resolve: {
+	// 		alias: {
+	// 			'vue$': 'vue/dist/vue.esm.js',
+	// 			'@': path.resolve('src')
+	// 		}
+	// 	}
+	// },
+  chainWebpack: config => {
+    const svgRule = config.module.rule("svg");
+    svgRule.uses.clear();
+    svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+  },
+  pluginOptions: {
+    TerserPlugin: {
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      }
+    }
   }
 }
