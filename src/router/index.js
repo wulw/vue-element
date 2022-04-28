@@ -6,6 +6,8 @@ const Home = () => import('@/views/Home.vue')
 
 const Login = () => import('@/views/Login')
 
+const Wedding = () => import('@/views/Wedding')
+
 Vue.use(Router)
 
 const router = new Router({
@@ -46,6 +48,11 @@ const router = new Router({
           path: '/data/view',
           name: 'view',
           component: () => import('@/views/data/View')
+        },
+        {
+          path: '/home/demo',
+          name: 'demo',
+          component: () => import('@/views/Demo')
         }
       ]
     },
@@ -53,6 +60,11 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/wedding',
+      name: 'wedding',
+      component: Wedding
     }
   ]
 })

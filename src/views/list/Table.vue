@@ -5,6 +5,7 @@
       :data="tableData"
       tooltip-effect="dark"
       style="width: 100%"
+      max-height="242px"
       @selection-change="handleSelectionChange">
       <el-table-column
         type="selection"
@@ -42,7 +43,19 @@ export default {
   props: {},
   data() {
     return {
-      tableData: [{
+      tableData: [],
+      multipleSelection: []
+    }
+  },
+  computed: {
+    tableData1() {
+      return this.tableDataList
+    }
+  },
+  created() {
+    let _this = this
+    setTimeout(() => {
+      _this.tableData = [{
         date: '2016-05-03',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄'
@@ -78,11 +91,9 @@ export default {
         date: '2016-05-07',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄'
-      }],
-      multipleSelection: []
-    }
+      }]
+    }, 2000)
   },
-  created() {},
   methods: {
     handleSelectionChange(val) {
       // eslint-disable-next-line
@@ -102,6 +113,7 @@ export default {
 
 <style lang="scss" scoped>
 .table {
+  height: 100%;
   .fn-button {
     padding: 16px;
     background-color: #fff;

@@ -28,7 +28,7 @@ export default {
   /* margin-top: 60px; */
   width: 100%;
   height: 100%;
-  min-width: 1366px;
+  /* min-width: 1366px; */
   background-image: url('./assets/images/bg.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;

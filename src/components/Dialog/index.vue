@@ -3,7 +3,10 @@
     <el-dialog :title="title"
       :visible.sync="dialogVisible"
       :before-close="beforeClose">
-      <slot></slot>
+      <div>11</div>
+      <slot name="slot-test">
+        <div>默认值</div>
+      </slot>
       <div class="el-footer">
         <el-button type="primary" size="small" @click="$parent.dialogVisible = false">确 定</el-button>
       </div>
@@ -45,6 +48,9 @@ export default {
     confirmModal () {
       this.$emit('close', '')
     }
+  },
+  created() {
+    // this.title = 'A'
   }
 }
 </script>

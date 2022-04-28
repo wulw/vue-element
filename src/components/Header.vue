@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="login">
-      <strong>IFLYTEK DESIGN</strong>
+      <strong>WINNING DESIGN</strong>
     </div>
     <el-menu :default-active="activeIndex"
       class="el-menu-demo"
@@ -12,9 +12,16 @@
       text-color="#ccc"
       active-text-color="#ffd04b">
       <el-menu-item index="1" route="/data/view">ECHARTS</el-menu-item>
-      <el-menu-item index="2" route="/home/test">DEMO</el-menu-item>
+      <el-menu-item index="2" route="/home/demo">DEMO</el-menu-item>
       <el-menu-item index="3" route="/list/table">TABLE</el-menu-item>
+      <el-menu-item index="4" route="/home/test">TEST</el-menu-item>
     </el-menu>
+    <el-popover placement="bottom">
+      <el-button-group>
+        <el-button>{{ !isZh ? '中文' : '英文' }}</el-button>
+      </el-button-group>
+      <el-button slot="reference">{{ isZh ? '中文' : '英文' }}</el-button>
+    </el-popover>
     <div class="user">
       <el-image
         style="width: 40px; height: 40px"
@@ -46,7 +53,8 @@ export default {
       user: {
         imgSrc: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
         name: 'admin'
-      }
+      },
+      isZh: true
     }
   },
   computed: {
@@ -77,7 +85,7 @@ export default {
           });
           this.setUser({
             id: '',
-            name: 'lywu6',
+            name: 'w_lw',
             password: '123456'
           })
           this.$router.push({
@@ -92,7 +100,9 @@ export default {
       }
     }
   },
-  created() {}
+  created() {
+    console.log(this.activeIndex)
+  }
 }
 </script>
 

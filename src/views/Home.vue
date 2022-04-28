@@ -3,7 +3,9 @@
     <Header></Header>
     <!-- <Test></Test> -->
     <div class="content">
-      <router-view></router-view>
+      <!-- <transition name="slide-fade"> -->
+        <router-view :key="$route.name"></router-view>
+      <!-- </transition> -->
     </div>
   </div>
 </template>
@@ -32,7 +34,7 @@ export default {
     
   },
   created() {
-    
+    console.log(this.$route)
   }
 }
 </script>

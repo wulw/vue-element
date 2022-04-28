@@ -1,7 +1,7 @@
 const state = {
   user: {
     id: '',
-    name: 'lywu6',
+    name: 'w_lw',
     password: '123456'
   },
   activeIndex: '1'
